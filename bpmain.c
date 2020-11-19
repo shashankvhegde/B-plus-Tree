@@ -1,13 +1,13 @@
 
-	/* B+ Tree Implementation (Done!)*/
+	/* B+ Tree Implementation*/
 	
-	/*SPECIFICATION: 
-     *There are Different Vartiations of a B+ Tree structure 
-	 *In this program ,the program makes the following assumptions regarding the B+ Tree structure :
-	 *1.ALl Entries (Records) are stored only at the Leaf level and all leaves are doubly linked
-	 *2.Inner Nodes hold Keys in general (which may or maynot be present  in the entries) which  serve as Decision Markers
-	 *  helping in searching the required entry
-	 *3.Keys corresponding to all entries are present in the inner nodes though entries corresponding to all keys maynot be present in the leaves.
+	/*
+	 * SPECIFICATION:  
+	 * There are Different variations of a B+ Tree structure 
+	 * In this program ,the program makes the following assumptions regarding the B+ Tree structure :
+	 * 1. All Entries (Records) are stored only at the Leaf level and all leaves are doubly linked
+	 * 2. Inner Nodes hold Keys in general (which may or maynot be present  in the entries) which  serve as Decision Marker in helping in searching the required entry
+	 * 3. Keys corresponding to all entries are present in the inner nodes though entries corresponding to all keys maynot be present in the leaves.
 	 */	
 
 
@@ -613,8 +613,6 @@ void restore_leaf(BplusNode **root,BplusNode *prev,int p){
 	if(prev != NULL){
 		if(p == 0){
 			if(prev->n.innernode->branch[1]->n.leafnode->count > DATAMIN){
-				
-			//	printf("yes2\n");
 				fromright_leaf(prev,*root,p);
 			}
 			else{
